@@ -1,4 +1,4 @@
-import Navbar from "@/components/layouts/Navbar";
+import Navbar from "../components/layouts/Navbar";
 import Link from "next/link";
 
 export default function Home() {
