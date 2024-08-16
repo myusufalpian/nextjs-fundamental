@@ -1,10 +1,13 @@
 import Navbar from "../Navbar";
+import {useRouter} from "next/router";
 
+const disabledNavbar = ["/auth/signin", "/auth/signup"];
 const AppShell = (props) => {
+    const {pathname} = useRouter();
     const {children} = props;
     return (
         <main>
-            <Navbar />
+            { !disabledNavbar.includes(pathname) && <Navbar />}
             {children}
         </main>
     )

@@ -1,11 +1,9 @@
-import Link from "next/link";
-
+import SignUpViews from "./../../../views/auth/signup";
 const SignUpPage = () => {
     return (
-        <div>
-            <h1>Sign Up Page</h1>
-            <p>Already have account? <Link href="/auth/signin">Sign In</Link></p>
-        </div>
+        <>
+            <SignUpViews />
+        </>
     )
 }
 
