@@ -11,7 +11,7 @@ const DetailProductPage = () => {
         if (localStorage.getItem("token") !== null) {
             setIsLogin(true)
         }
-    }, []);
+    }, [isLogin, push]);
     return (
         <div>
             {/* 940e74ca-d3bd-4ad1-89f5-3dd9c9fd09dd  */}

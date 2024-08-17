@@ -1,23 +1,25 @@
-import Link from "next/link";
-import StylesMainProduct from "./Main.module.css";
-import {useEffect, useState} from "react";
-import {useRouter} from "next/router";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+
 const MainProductViews = () => {
-    const [isLogin, setIsLogin] = useState(false);
-    const {push, query} = useRouter();
+    const [isLogin, setIsLogin] = useState(true);
+    const router = useRouter();
     useEffect(() => {
-        if(!isLogin) {
-            push("/auth/signin")
-        }
-        if (localStorage.getItem("token") !== null) {
-            setIsLogin(true)
+        const token = localStorage.getItem("token");
+        if (!token) {
+            setIsLogin(false);
         }
     }, []);
+    useEffect(() => {
+        if (!isLogin) {
+            router.push("/auth/signin");}
+    }, [isLogin, router]);
+
     return (
-        <div className={StylesMainProduct.mainproduct}>
+        <div>
             <h1>Disini Product Page</h1>
         </div>
-    )
-}
+    );
+};
 
 export default MainProductViews;
